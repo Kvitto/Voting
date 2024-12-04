@@ -5,30 +5,20 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.4.0</version>
+        <version>2.4.0</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.javapractice</groupId>
-    <artifactId>voting</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>voting</name>
-    <description>voting</description>
+    <groupId>com.javapractice.voting</groupId>
+    <artifactId>restaurant-voting</artifactId>
+    <version>1.0</version>
+    <name>restaurant-voting</name>
+    <description>Restaurant voting application</description>
     <url/>
-    <licenses>
-        <license/>
-    </licenses>
-    <developers>
-        <developer/>
-    </developers>
-    <scm>
-        <connection/>
-        <developerConnection/>
-        <tag/>
-        <url/>
-    </scm>
+
     <properties>
-        <java.version>17</java.version>
+        <java.version>15</java.version>
     </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -47,8 +37,11 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
+            <version>1.18.20</version>
             <optional>true</optional>
         </dependency>
+
+        <!--    https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.4-Release-Notes#junit-5s-vintage-engine-removed-from-spring-boot-starter-test-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -59,30 +52,9 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <annotationProcessorPaths>
-                        <path>
-                            <groupId>org.projectlombok</groupId>
-                            <artifactId>lombok</artifactId>
-                        </path>
-                    </annotationProcessorPaths>
-                </configuration>
-            </plugin>
-            <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <excludes>
-                        <exclude>
-                            <groupId>org.projectlombok</groupId>
-                            <artifactId>lombok</artifactId>
-                        </exclude>
-                    </excludes>
-                </configuration>
             </plugin>
         </plugins>
     </build>
-
 </project>
