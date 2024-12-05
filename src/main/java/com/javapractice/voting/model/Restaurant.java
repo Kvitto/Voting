@@ -1,23 +1,30 @@
 package com.javapractice.voting.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.springframework.data.jpa.domain.AbstractPersistable;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import java.util.List;
-import java.util.Set;
 
-@Data
-@NoArgsConstructor
+@Entity
+@Getter
+@Setter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
-public class Restaurant {
+@ToString
+public class Restaurant extends AbstractPersistable<Integer> {
 
-    private int id;
-
+    @Column(name = "name")
     private String name;
 
+    @Column(name = "dishes")
+    @OneToMany(mappedBy = "restaurant")
     private List<Dish> dishes;
 
-    private Set<Vote> votes;
+    @Column(name = "votes")
+    @OneToMany(mappedBy = "restaurant")
+    private List<Vote> votes;
 
 }

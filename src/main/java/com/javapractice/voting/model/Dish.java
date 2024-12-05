@@ -1,23 +1,33 @@
 package com.javapractice.voting.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.springframework.data.jpa.domain.AbstractPersistable;
 
+import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 import java.time.LocalDate;
 
-@Data
-@NoArgsConstructor
+@Entity
+@Getter
+@Setter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
-public class Dish {
+@ToString
+public class Dish extends AbstractPersistable<Integer> {
 
-    private int id;
-
-    private String name;
-
+    @Column(name = "date", nullable = false)
+    @NotEmpty
     private LocalDate date;
 
-    private Double price;
-
+    @ManyToOne
+    @JoinColumn(name = "restaurant_id")
     private Restaurant restaurant;
+
+    @Column(name = "description")
+    @Size(max = 256)
+    private String description;
+
+    @Column(name = "price")
+    private Double price;
 }
