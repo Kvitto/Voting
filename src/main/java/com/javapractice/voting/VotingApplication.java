@@ -1,7 +1,5 @@
 package com.javapractice.voting;
 
-import com.javapractice.voting.model.Role;
-import com.javapractice.voting.model.User;
 import com.javapractice.voting.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.boot.ApplicationArguments;
