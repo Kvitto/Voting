@@ -17,7 +17,7 @@ import java.time.LocalDate;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
 @ToString
-public class Dish extends AbstractPersistable<Integer> {
+public class Dish extends BaseEntity {
 
     @Column(name = "date", nullable = false)
     @NotEmpty

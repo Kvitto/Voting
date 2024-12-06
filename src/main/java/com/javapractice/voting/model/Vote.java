@@ -18,7 +18,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
 @ToString
-public class Vote extends AbstractPersistable<Integer> {
+public class Vote extends BaseEntity {
 
     @Column(name = "date_time", nullable = false)
     @NotNull
