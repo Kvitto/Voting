@@ -1,6 +1,9 @@
 package com.javapractice.voting.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.*;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
 import javax.persistence.*;
@@ -20,14 +23,16 @@ public class Dish extends AbstractPersistable<Integer> {
     @NotEmpty
     private LocalDate date;
 
-    @ManyToOne
-    @JoinColumn(name = "restaurant_id")
-    private Restaurant restaurant;
-
     @Column(name = "description")
     @Size(max = 256)
     private String description;
 
     @Column(name = "price")
     private Double price;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "restaurant_id", nullable = false)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @JsonBackReference
+    private Restaurant restaurant;
 }

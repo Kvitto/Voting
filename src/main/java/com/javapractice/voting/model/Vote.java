@@ -1,5 +1,6 @@
 package com.javapractice.voting.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.*;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
@@ -31,5 +32,6 @@ public class Vote extends AbstractPersistable<Integer> {
     @NotEmpty
     @ManyToOne
     @JoinColumn(name = "restaurant_id")
+    @JsonBackReference
     private Restaurant restaurant;
 }
