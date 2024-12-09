@@ -1,5 +1,6 @@
 package com.javapractice.voting.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import org.springframework.data.domain.Persistable;
 import org.springframework.util.Assert;
@@ -27,6 +28,8 @@ public abstract class BaseEntity implements Persistable<Long> {
         return id;
     }
 
+    @JsonIgnore
+    @Override
     public boolean isNew() {
         return id == null;
     }
